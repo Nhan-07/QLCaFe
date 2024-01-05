@@ -202,6 +202,11 @@ namespace Quản_Lí_Nhà_Hàng
                 }
             }
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 
