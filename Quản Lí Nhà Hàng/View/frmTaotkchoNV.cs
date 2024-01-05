@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
+using System.Security.Cryptography;
+using BCrypt.Net;
 
 namespace Quản_Lí_Nhà_Hàng.View
 {
@@ -58,6 +60,10 @@ namespace Quản_Lí_Nhà_Hàng.View
                 AddItems(id, username, userpass, phanquyen1, Gmail);
             }
         }
+        private string HashPassword(string password)
+        {
+            return BCrypt.Net.BCrypt.HashPassword(password);
+        }
         private void btnThem_Click_1(object sender, EventArgs e)
         {
 
@@ -73,6 +79,7 @@ namespace Quản_Lí_Nhà_Hàng.View
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin tài khoản!");
                 return;
             }
+
             // Kiểm tra xem email đã tồn tại trong cơ sở dữ liệu hay chưa
             string checkEmailQuery = "SELECT COUNT(*) FROM users WHERE Gmail = @Gmail";
             SqlCommand checkEmailCmd = new SqlCommand(checkEmailQuery, MainClass.con);
@@ -89,11 +96,14 @@ namespace Quản_Lí_Nhà_Hàng.View
 
             try
             {
+                // Mã hóa mật khẩu
+                string hashedPassword = HashPassword(userpass);
+
                 // Thực hiện thêm dữ liệu vào cơ sở dữ liệu
-                string qry = "INSERT INTO users (Username, Upass, Uname,Gmail) VALUES (@Username, @Upass, @Uname, @Gmail)";
+                string qry = "INSERT INTO users (Username, Upass, Uname, Gmail) VALUES (@Username, @Upass, @Uname, @Gmail)";
                 SqlCommand cmd = new SqlCommand(qry, MainClass.con);
                 cmd.Parameters.AddWithValue("@Username", username);
-                cmd.Parameters.AddWithValue("@Upass", userpass);
+                cmd.Parameters.AddWithValue("@Upass", hashedPassword);
                 cmd.Parameters.AddWithValue("@Uname", phanquyen2);
                 cmd.Parameters.AddWithValue("@Gmail", Gmail);
                 MainClass.con.Open();
@@ -115,7 +125,6 @@ namespace Quản_Lí_Nhà_Hàng.View
             {
                 MessageBox.Show("Lỗi khi thêm tài khoản: " + ex.Message);
             }
-
 
         }
 
