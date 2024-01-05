@@ -27,6 +27,7 @@ namespace Quản_Lí_Nhà_Hàng.View
             lb.Items.Add(dgvName);
             lb.Items.Add(dgvPhone);
             lb.Items.Add(dgvRole);
+            lb.Items.Add(dgvGmail);
 
             MainClass.LoadData(qry, guna2DataGridView1, lb);
 
@@ -36,7 +37,7 @@ namespace Quản_Lí_Nhà_Hàng.View
         private void frmStaffView_Load(object sender, EventArgs e)
         {
             GetData();
-           
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -58,11 +59,11 @@ namespace Quản_Lí_Nhà_Hàng.View
             int soLuongNhanVien = guna2DataGridView1.Rows.Count;
 
             // Hiển thị kết quả thống kê
-           // MessageBox.Show("Số lượng nhân viên đang có trong quán là: " + soLuongNhanVien);
-            lblTong.Text = soLuongNhanVien.ToString() + " Người";  
+            // MessageBox.Show("Số lượng nhân viên đang có trong quán là: " + soLuongNhanVien);
+            lblTong.Text = soLuongNhanVien.ToString() + " Người";
         }
 
-        
+
 
         private void guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -73,33 +74,35 @@ namespace Quản_Lí_Nhà_Hàng.View
                 frm.id = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvId"].Value);
                 frm.txtName.Text = Convert.ToString(guna2DataGridView1.CurrentRow.Cells["dgvName"].Value);
                 frm.txtPhone.Text = Convert.ToString(guna2DataGridView1.CurrentRow.Cells["dgvPhone"].Value);
+                frm.txtGmail.Text = Convert.ToString(guna2DataGridView1.CurrentRow.Cells["dgvGmail"].Value);
                 frm.cbRole.Text = Convert.ToString(guna2DataGridView1.CurrentRow.Cells["dgvRole"].Value);
-
-                frm.ShowDialog();
-                GetData();
-
-            }
-            if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvdel")
-            {
-                // need to confirm before  delete
-                guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Question;
-                guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.YesNo;
-
-                if (guna2MessageDialog1.Show("Bạn  có chắc muốn xóa không ?") == DialogResult.Yes)
-                {
-                    int id = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvId"].Value);
-                    string qry = "Delete from  staff where  staffID = " + id + "";
-                    Hashtable ht = new Hashtable();
-                    MainClass.SQl(qry, ht);
-
-                    guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
-                    guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
-                    guna2MessageDialog1.Show("Xóa Thành Công");
+                 frm.ShowDialog();
+               
                     GetData();
+
+                }
+                if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvdel")
+                {
+                    // need to confirm before  delete
+                    guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Question;
+                    guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.YesNo;
+
+                    if (guna2MessageDialog1.Show("Bạn  có chắc muốn xóa không ?") == DialogResult.Yes)
+                    {
+                        int id = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvId"].Value);
+                        string qry = "Delete from  staff where  staffID = " + id + "";
+                        Hashtable ht = new Hashtable();
+                        MainClass.SQl(qry, ht);
+
+                        guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
+                        guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+                        guna2MessageDialog1.Show("Xóa Thành Công");
+                        GetData();
+                    }
+
                 }
 
             }
-
         }
     }
-}
+

@@ -34,10 +34,10 @@
             this.txtMaXacNhan = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtTaiKhoan = new System.Windows.Forms.TextBox();
+            this.txtGmail = new System.Windows.Forms.TextBox();
             this.txtNhapLaiMatKhau = new System.Windows.Forms.TextBox();
             this.btnGui = new System.Windows.Forms.Button();
-            this.btnLayLaiMatKhau = new System.Windows.Forms.Button();
+            this.btnDatLaiMatKhau = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -117,18 +117,18 @@
             this.label3.TabIndex = 28;
             this.label3.Text = "Nhập lại mật khẩu";
             // 
-            // txtTaiKhoan
+            // txtGmail
             // 
-            this.txtTaiKhoan.BackColor = System.Drawing.SystemColors.Window;
-            this.txtTaiKhoan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTaiKhoan.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.txtTaiKhoan.Location = new System.Drawing.Point(426, 164);
-            this.txtTaiKhoan.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTaiKhoan.Name = "txtTaiKhoan";
-            this.txtTaiKhoan.Size = new System.Drawing.Size(402, 41);
-            this.txtTaiKhoan.TabIndex = 21;
-            this.txtTaiKhoan.TabStop = false;
+            this.txtGmail.BackColor = System.Drawing.SystemColors.Window;
+            this.txtGmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtGmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGmail.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.txtGmail.Location = new System.Drawing.Point(426, 164);
+            this.txtGmail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtGmail.Name = "txtGmail";
+            this.txtGmail.Size = new System.Drawing.Size(402, 41);
+            this.txtGmail.TabIndex = 21;
+            this.txtGmail.TabStop = false;
             // 
             // txtNhapLaiMatKhau
             // 
@@ -158,21 +158,21 @@
             this.btnGui.UseVisualStyleBackColor = false;
             this.btnGui.Click += new System.EventHandler(this.btnGui_Click);
             // 
-            // btnLayLaiMatKhau
+            // btnDatLaiMatKhau
             // 
-            this.btnLayLaiMatKhau.BackColor = System.Drawing.Color.Teal;
-            this.btnLayLaiMatKhau.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnLayLaiMatKhau.FlatAppearance.BorderSize = 0;
-            this.btnLayLaiMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLayLaiMatKhau.ForeColor = System.Drawing.Color.White;
-            this.btnLayLaiMatKhau.Location = new System.Drawing.Point(463, 485);
-            this.btnLayLaiMatKhau.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLayLaiMatKhau.Name = "btnLayLaiMatKhau";
-            this.btnLayLaiMatKhau.Size = new System.Drawing.Size(332, 64);
-            this.btnLayLaiMatKhau.TabIndex = 31;
-            this.btnLayLaiMatKhau.Text = "Lấy lại mật khẩu";
-            this.btnLayLaiMatKhau.UseVisualStyleBackColor = false;
-            this.btnLayLaiMatKhau.Click += new System.EventHandler(this.btnLayLaiMatKhau_Click);
+            this.btnDatLaiMatKhau.BackColor = System.Drawing.Color.Teal;
+            this.btnDatLaiMatKhau.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnDatLaiMatKhau.FlatAppearance.BorderSize = 0;
+            this.btnDatLaiMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDatLaiMatKhau.ForeColor = System.Drawing.Color.White;
+            this.btnDatLaiMatKhau.Location = new System.Drawing.Point(463, 485);
+            this.btnDatLaiMatKhau.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDatLaiMatKhau.Name = "btnDatLaiMatKhau";
+            this.btnDatLaiMatKhau.Size = new System.Drawing.Size(332, 64);
+            this.btnDatLaiMatKhau.TabIndex = 31;
+            this.btnDatLaiMatKhau.Text = "Đặt lại mật khẩu";
+            this.btnDatLaiMatKhau.UseVisualStyleBackColor = false;
+            this.btnDatLaiMatKhau.Click += new System.EventHandler(this.btnDatLaiMatKhau_Click_1);
             // 
             // label4
             // 
@@ -194,9 +194,9 @@
             this.label1.Location = new System.Drawing.Point(371, 136);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(220, 25);
+            this.label1.Size = new System.Drawing.Size(67, 25);
             this.label1.TabIndex = 23;
-            this.label1.Text = "Tài khoản hoặc Email";
+            this.label1.Text = "Gmail";
             // 
             // frmQmk
             // 
@@ -209,10 +209,10 @@
             this.Controls.Add(this.txtMaXacNhan);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtTaiKhoan);
+            this.Controls.Add(this.txtGmail);
             this.Controls.Add(this.txtNhapLaiMatKhau);
             this.Controls.Add(this.btnGui);
-            this.Controls.Add(this.btnLayLaiMatKhau);
+            this.Controls.Add(this.btnDatLaiMatKhau);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Name = "frmQmk";
@@ -230,10 +230,10 @@
         private System.Windows.Forms.TextBox txtMaXacNhan;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtTaiKhoan;
+        private System.Windows.Forms.TextBox txtGmail;
         private System.Windows.Forms.TextBox txtNhapLaiMatKhau;
         private System.Windows.Forms.Button btnGui;
-        private System.Windows.Forms.Button btnLayLaiMatKhau;
+        private System.Windows.Forms.Button btnDatLaiMatKhau;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
     }

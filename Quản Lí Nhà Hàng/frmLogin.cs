@@ -18,6 +18,15 @@ namespace Quản_Lí_Nhà_Hàng
         public frmLogin()
         {
             InitializeComponent();
+            txtPass.KeyPress += txtPass_KeyPress; // Gán sự kiện KeyPress của txtPass cho phương thức txtPass_KeyPress
+        }
+        private void txtPass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                // Người dùng nhấn phím Enter
+                btnLogin_Click(sender, e); // Gọi sự kiện btnLogin_Click để xử lý đăng nhập
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -72,8 +81,8 @@ namespace Quản_Lí_Nhà_Hàng
 
         private void lblQmk_Click(object sender, EventArgs e)
         {
-           
-
+            frmQmk quenMatKhau = new frmQmk ();
+            quenMatKhau.ShowDialog();
         }
     }
 }

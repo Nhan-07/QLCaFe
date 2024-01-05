@@ -10,7 +10,9 @@ using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-    
+using Quản_Lí_Nhà_Hàng.View;
+using System.Data.SqlClient;
+
 namespace Quản_Lí_Nhà_Hàng
 {
     public partial class frmQmk : Form
@@ -24,7 +26,7 @@ namespace Quản_Lí_Nhà_Hàng
         }
         private void frmQmk_Load(object sender, EventArgs e)
         {
-            //cbbLoaiTaiKhoan.SelectedIndex = 0;
+            //cmbPhanquyen.StartIndex = 0;
         }
         //random Mã xác nhận
         private string MaXacNhan()
@@ -34,81 +36,41 @@ namespace Quản_Lí_Nhà_Hàng
             return code.ToString();
         }
 
-        private void btnLayLaiMatKhau_Click(object sender, EventArgs e)
-        {
-            string tentk = txtTaiKhoan.Text;
-            string matkhau = txtMatKhau.Text;
-            string nhaplaimatkhau = txtNhapLaiMatKhau.Text;
-            //hàm kiểm tra xem nhập đúng yêu cầu không nếu không sẽ thông báo
-            if (string.IsNullOrEmpty(tentk))
-            {
-                // Tên tài khoảng bằng rỗng thì nhập lại
-                MessageBox.Show("Vui lòng nhập tài khoản !", "Thông Báo");
-                return;
-            }
-            if (string.IsNullOrEmpty(matkhau))
-            {
-                // Mật khẩu bằng rỗng thì nhập lại
-                MessageBox.Show("Vui lòng nhập mật khẩu!", "Thông Báo");
-                return;
-            }
-
-            if (nhaplaimatkhau != matkhau)
-            {
-                MessageBox.Show("Vui lòng xác nhận mật khẩu chính xác", "Thông Báo");
-                return;
-            }
-            //hàm kiểm tra mã nếu không đúng sẽ bắt nhập mã lại
-            string userEnteredCode = txtMaXacNhan.Text.Trim();
-            if (userEnteredCode != verification_code)
-            {
-                MessageBox.Show("Mã xác nhận sai vui lòng kiểm tra lại Mail.");
-                return;
-            }
-            ////kiểm tra Tai khoan có tồn tại không
-            //if (loaitk == "Sinh Viên")
-            //{
-            //    var account = context.TaiKhoanSVs.FirstOrDefault(a => (tentk.Contains("@") && a.Email == tentk) || (a.MaSV == tentk));
-            //    if (account != null)
-            //    {
-            //        MessageBox.Show("Lấy lại mật khẩu thành công!", "Thông Báo");
-            //        account.MatKhau = matkhau;
-            //        context.SaveChanges();
-            //        this.Close();
-            //        return;
-            //    }
-            //}
-            //if (loaitk == "Giảng Viên")
-            //{
-            //    var account = context.TaiKhoanGVs.FirstOrDefault(a => (tentk.Contains("@") && a.Email == tentk) || (a.MaGV == tentk));
-            //    if (account != null)
-            //    {
-            //        MessageBox.Show("Lấy lại mật khẩu thành công!", "Thông Báo");
-            //        account.MatKhau = matkhau;
-            //        context.SaveChanges();
-            //        this.Close();
-            //        return;
-            //    }
-            //}
-
-        }
         //nút gữi mã xác nhận
         private async void btnGui_Click(object sender, EventArgs e)
         {
-            string tentk = txtTaiKhoan.Text;
+            string Gmail = txtGmail.Text;
             string matkhau = txtMatKhau.Text;
             string email = "";
+            string MK = "";
             //kiểm tra là nếu có @ thì đó là email và gán vào email
-            if (tentk.Contains("@"))
+            if (Gmail.Contains("@"))
             {
-                email = txtTaiKhoan.Text;
+                Gmail = txtGmail.Text;
             }
-            string from = "";  // email dùng để gửi mã
-            string pass = "";  // key email
+            else
+            {
+                MessageBox.Show("Vui lòng nhập địa chỉ email hợp lệ.", "Thông Báo");
+                return;
+            }
+
+            // Kiểm tra xem đã có Gmail này trong cơ sở dữ liệu hay chưa
+            if (CheckExistingEmail(email))
+            {
+                MessageBox.Show("Địa chỉ email đã được sử dụng. Vui lòng sử dụng địa chỉ email khác.", "Thông Báo");
+                return;
+            }
+            if (CheckExistingUpass(MK))
+            {
+                MessageBox.Show("MK này đã được sử dụng. Vui lòng sử dụng MK khác.", "Thông Báo");
+                return;
+            }
+            string from = "jhmxftugyu76f@gmail.com";  // email dùng để gửi mã
+            string pass = "ltug fyax obkd nygp";  // key email
 
             //soạn tin nhắn để gửi
             MailMessage message = new MailMessage();
-            message.To.Add(email);
+            message.To.Add(Gmail);
             message.From = new MailAddress(from);
             message.Body = verification_code;
             message.Subject = "Mã xác nhận của bạn";
@@ -124,7 +86,7 @@ namespace Quản_Lí_Nhà_Hàng
             {
                 //gửi
                 smtp.Send(message);
-                MessageBox.Show("Đang gửi mã xác nhận tới email: " + email, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Đang gửi mã xác nhận tới email: " + Gmail, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnGui.Enabled = false; //khi gửi sẽ khóa nút gửi
                 btnGui.BackColor = Color.Gray; // nút chuyển sang màu xám
                 int delayInSeconds = 60;  // cho thời gian 60 giây
@@ -147,6 +109,97 @@ namespace Quản_Lí_Nhà_Hàng
                 MessageBox.Show("Lỗi khi gửi đến mail vui lòng xem lại mail hoặc nhập lại mã xác nhận" + ex.Message);
             }
         }
+        
+        private bool CheckExistingEmail(string email)
+        {
 
+            string qry = "SELECT COUNT(*) FROM users WHERE Gmail = @Email";
+            using (SqlConnection con = new SqlConnection(MainClass.con_string))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand(qry, con))
+                {
+                    cmd.Parameters.AddWithValue("@Email", email);
+                   
+                    int count = (int)cmd.ExecuteScalar();
+
+                    return count > 0;
+                }
+            }
+        }
+        private bool CheckExistingUpass(string MK)
+        {
+
+            string qry = "SELECT COUNT(*) FROM users WHERE Upass = @Upass";
+            using (SqlConnection con = new SqlConnection(MainClass.con_string))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand(qry, con))
+                {
+                    cmd.Parameters.AddWithValue("@Upass", MK);
+
+                    int count = (int)cmd.ExecuteScalar();
+
+                    return count > 0;
+                }
+            }
+        }
+
+        private void btnDatLaiMatKhau_Click_1(object sender, EventArgs e)
+        {
+            string Gmail = txtGmail.Text;
+            string matkhau = txtMatKhau.Text;
+            string nhaplaimatkhau = txtNhapLaiMatKhau.Text;
+           
+            //hàm kiểm tra xem nhập đúng yêu cầu không nếu không sẽ thông báo
+            if (string.IsNullOrEmpty(Gmail))
+            {
+                // Gmail bằng rỗng thì nhập lại
+                MessageBox.Show("Vui lòng nhập Gmail !", "Thông Báo");
+                return;
+            }
+            if (string.IsNullOrEmpty(matkhau))
+            {
+                // Mật khẩu bằng rỗng thì nhập lại
+                MessageBox.Show("Vui lòng nhập mật khẩu!", "Thông Báo");
+                return;
+            }
+
+            if (nhaplaimatkhau != matkhau)
+            {
+                MessageBox.Show("Vui lòng xác nhận mật khẩu chính xác", "Thông Báo");
+                return;
+            }
+            //hàm kiểm tra mã nếu không đúng sẽ bắt nhập mã lại
+            string userEnteredCode = txtMaXacNhan.Text.Trim();
+            if (userEnteredCode != verification_code)
+            {
+                MessageBox.Show("Mã xác nhận sai vui lòng kiểm tra lại Mail.");
+                return;
+            }
+            string updateQuery = "UPDATE users SET Upass = @Upass WHERE Gmail = @Gmail";
+            using (SqlConnection con = new SqlConnection(MainClass.con_string))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand(updateQuery, con))
+                {
+                    cmd.Parameters.AddWithValue("@Upass", matkhau);
+                    cmd.Parameters.AddWithValue("@Gmail", Gmail);
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Mật khẩu đã được thay đổi thành công!", "Thông Báo");
+                        // Perform any additional actions or show UI based on password change success
+                    }
+                    else
+                    {
+                        MessageBox.Show("Có lỗi xảy ra, không thể thay đổi mật khẩu.", "Thông Báo");
+                    }
+                }
+            }
+
+        }
     }
 }
+

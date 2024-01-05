@@ -41,15 +41,16 @@
             this.btnAdd = new Guna.UI2.WinForms.Guna2ImageButton();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.lblThongkeNV = new System.Windows.Forms.Label();
+            this.lblTong = new System.Windows.Forms.Label();
             this.dgvSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvGmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.dgvdel = new System.Windows.Forms.DataGridViewImageColumn();
-            this.lblThongkeNV = new System.Windows.Forms.Label();
-            this.lblTong = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,10 +58,10 @@
             // 
             this.guna2Separator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Separator1.Location = new System.Drawing.Point(16, 105);
-            this.guna2Separator1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Separator1.Location = new System.Drawing.Point(21, 129);
+            this.guna2Separator1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Separator1.Name = "guna2Separator1";
-            this.guna2Separator1.Size = new System.Drawing.Size(698, 8);
+            this.guna2Separator1.Size = new System.Drawing.Size(931, 10);
             this.guna2Separator1.TabIndex = 9;
             // 
             // label2
@@ -69,10 +70,9 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(487, 19);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(649, 23);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 20);
+            this.label2.Size = new System.Drawing.Size(95, 25);
             this.label2.TabIndex = 6;
             this.label2.Text = "Tìm Kiếm";
             // 
@@ -81,10 +81,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(11, 9);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(15, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 20);
+            this.label1.Size = new System.Drawing.Size(160, 25);
             this.label1.TabIndex = 7;
             this.label1.Text = "Thêm Nhân Viên";
             // 
@@ -107,6 +106,7 @@
             this.dataGridViewImageColumn1.MinimumWidth = 50;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.Width = 125;
             // 
             // dataGridViewImageColumn2
             // 
@@ -117,6 +117,7 @@
             this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn2.MinimumWidth = 50;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Width = 125;
             // 
             // btnAdd
             // 
@@ -125,11 +126,11 @@
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
             this.btnAdd.ImageOffset = new System.Drawing.Point(0, 0);
             this.btnAdd.ImageRotate = 0F;
-            this.btnAdd.Location = new System.Drawing.Point(13, 34);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Location = new System.Drawing.Point(17, 42);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnAdd.Size = new System.Drawing.Size(63, 58);
+            this.btnAdd.Size = new System.Drawing.Size(84, 71);
             this.btnAdd.TabIndex = 8;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -146,14 +147,14 @@
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSearch.IconRight = global::Quản_Lí_Nhà_Hàng.Properties.Resources.icons8_search_50;
-            this.txtSearch.Location = new System.Drawing.Point(491, 42);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtSearch.Location = new System.Drawing.Point(655, 52);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
             this.txtSearch.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.txtSearch.PlaceholderText = "Tìm Kiếm Ở Đây";
             this.txtSearch.SelectedText = "";
-            this.txtSearch.Size = new System.Drawing.Size(224, 39);
+            this.txtSearch.Size = new System.Drawing.Size(299, 48);
             this.txtSearch.TabIndex = 5;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -179,6 +180,7 @@
             this.dgvName,
             this.dgvPhone,
             this.dgvRole,
+            this.dgvGmail,
             this.dgvId,
             this.dgvEdit,
             this.dgvdel});
@@ -191,13 +193,13 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.Location = new System.Drawing.Point(16, 154);
-            this.guna2DataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2DataGridView1.Location = new System.Drawing.Point(21, 190);
+            this.guna2DataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidth = 51;
             this.guna2DataGridView1.RowTemplate.Height = 35;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(698, 211);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(931, 260);
             this.guna2DataGridView1.TabIndex = 10;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -221,6 +223,30 @@
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.guna2DataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellClick);
+            // 
+            // lblThongkeNV
+            // 
+            this.lblThongkeNV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblThongkeNV.AutoSize = true;
+            this.lblThongkeNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblThongkeNV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lblThongkeNV.Location = new System.Drawing.Point(147, 102);
+            this.lblThongkeNV.Name = "lblThongkeNV";
+            this.lblThongkeNV.Size = new System.Drawing.Size(347, 25);
+            this.lblThongkeNV.TabIndex = 6;
+            this.lblThongkeNV.Text = "Tổng số nhân viên đang có trang quán";
+            // 
+            // lblTong
+            // 
+            this.lblTong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTong.AutoSize = true;
+            this.lblTong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lblTong.Location = new System.Drawing.Point(540, 102);
+            this.lblTong.Name = "lblTong";
+            this.lblTong.Size = new System.Drawing.Size(58, 25);
+            this.lblTong.TabIndex = 6;
+            this.lblTong.Text = "Tổng";
             // 
             // dgvSTT
             // 
@@ -249,6 +275,12 @@
             this.dgvRole.HeaderText = "Vai Trò";
             this.dgvRole.MinimumWidth = 6;
             this.dgvRole.Name = "dgvRole";
+            // 
+            // dgvGmail
+            // 
+            this.dgvGmail.HeaderText = "Gmail";
+            this.dgvGmail.MinimumWidth = 6;
+            this.dgvGmail.Name = "dgvGmail";
             // 
             // dgvId
             // 
@@ -282,37 +314,11 @@
             this.dgvdel.Name = "dgvdel";
             this.dgvdel.Width = 50;
             // 
-            // lblThongkeNV
-            // 
-            this.lblThongkeNV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblThongkeNV.AutoSize = true;
-            this.lblThongkeNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblThongkeNV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.lblThongkeNV.Location = new System.Drawing.Point(110, 83);
-            this.lblThongkeNV.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblThongkeNV.Name = "lblThongkeNV";
-            this.lblThongkeNV.Size = new System.Drawing.Size(280, 20);
-            this.lblThongkeNV.TabIndex = 6;
-            this.lblThongkeNV.Text = "Tổng số nhân viên đang có trang quán";
-            // 
-            // lblTong
-            // 
-            this.lblTong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTong.AutoSize = true;
-            this.lblTong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.lblTong.Location = new System.Drawing.Point(405, 83);
-            this.lblTong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTong.Name = "lblTong";
-            this.lblTong.Size = new System.Drawing.Size(45, 20);
-            this.lblTong.TabIndex = 6;
-            this.lblTong.Text = "Tổng";
-            // 
             // frmStaffView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(727, 366);
+            this.ClientSize = new System.Drawing.Size(969, 450);
             this.Controls.Add(this.guna2DataGridView1);
             this.Controls.Add(this.guna2Separator1);
             this.Controls.Add(this.btnAdd);
@@ -322,7 +328,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSearch);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmStaffView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "frmStaffView";
@@ -343,14 +349,15 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
+        private System.Windows.Forms.Label lblThongkeNV;
+        private System.Windows.Forms.Label lblTong;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvSTT;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvPhone;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvRole;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvGmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvId;
         private System.Windows.Forms.DataGridViewImageColumn dgvEdit;
         private System.Windows.Forms.DataGridViewImageColumn dgvdel;
-        private System.Windows.Forms.Label lblThongkeNV;
-        private System.Windows.Forms.Label lblTong;
     }
 }
