@@ -37,9 +37,9 @@
             this.lblThongke = new System.Windows.Forms.Label();
             this.btnSomon = new Guna.UI2.WinForms.Guna2Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.gunaGroupBox1 = new Guna.UI.WinForms.GunaGroupBox();
+            this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.gunaGroupBox1.SuspendLayout();
+            this.guna2GroupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtpNgaybatdau
@@ -124,8 +124,9 @@
             // lblThongke
             // 
             this.lblThongke.AutoSize = true;
+            this.lblThongke.BackColor = System.Drawing.Color.Transparent;
             this.lblThongke.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblThongke.Location = new System.Drawing.Point(82, 50);
+            this.lblThongke.Location = new System.Drawing.Point(138, 69);
             this.lblThongke.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblThongke.Name = "lblThongke";
             this.lblThongke.Size = new System.Drawing.Size(19, 29);
@@ -162,19 +163,16 @@
             this.dataGridView1.Size = new System.Drawing.Size(958, 85);
             this.dataGridView1.TabIndex = 4;
             // 
-            // gunaGroupBox1
+            // guna2GroupBox1
             // 
-            this.gunaGroupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaGroupBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaGroupBox1.BorderColor = System.Drawing.Color.Gainsboro;
-            this.gunaGroupBox1.Controls.Add(this.lblThongke);
-            this.gunaGroupBox1.LineColor = System.Drawing.Color.Gainsboro;
-            this.gunaGroupBox1.Location = new System.Drawing.Point(422, 498);
-            this.gunaGroupBox1.Name = "gunaGroupBox1";
-            this.gunaGroupBox1.Size = new System.Drawing.Size(299, 93);
-            this.gunaGroupBox1.TabIndex = 5;
-            this.gunaGroupBox1.Text = "Số Tiền";
-            this.gunaGroupBox1.TextLocation = new System.Drawing.Point(10, 8);
+            this.guna2GroupBox1.Controls.Add(this.lblThongke);
+            this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2GroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2GroupBox1.Location = new System.Drawing.Point(372, 459);
+            this.guna2GroupBox1.Name = "guna2GroupBox1";
+            this.guna2GroupBox1.Size = new System.Drawing.Size(398, 132);
+            this.guna2GroupBox1.TabIndex = 5;
+            this.guna2GroupBox1.Text = "Số Tiền";
             // 
             // frmThongke
             // 
@@ -183,7 +181,7 @@
             this.BackColor = System.Drawing.Color.PapayaWhip;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1472, 683);
-            this.Controls.Add(this.gunaGroupBox1);
+            this.Controls.Add(this.guna2GroupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnSomon);
             this.Controls.Add(this.btnTK);
@@ -196,8 +194,8 @@
             this.Name = "frmThongke";
             this.Text = "frmThongke";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.gunaGroupBox1.ResumeLayout(false);
-            this.gunaGroupBox1.PerformLayout();
+            this.guna2GroupBox1.ResumeLayout(false);
+            this.guna2GroupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,6 +212,6 @@
         private System.Windows.Forms.Label lblThongke;
         private Guna.UI2.WinForms.Guna2Button btnSomon;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private Guna.UI.WinForms.GunaGroupBox gunaGroupBox1;
+        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
     }
 }
