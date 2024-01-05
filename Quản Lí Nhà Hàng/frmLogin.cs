@@ -1,4 +1,5 @@
 ﻿using Quản_Lí_Nhà_Hàng.Model;
+using Quản_Lí_Nhà_Hàng.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -66,6 +67,12 @@ namespace Quản_Lí_Nhà_Hàng
                 }
 
             }
+
+        }
+
+        private void lblQmk_Click(object sender, EventArgs e)
+        {
+           
 
         }
     }

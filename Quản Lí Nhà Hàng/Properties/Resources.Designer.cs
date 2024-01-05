@@ -63,6 +63,16 @@ namespace Quản_Lí_Nhà_Hàng.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap brkLogin {
+            get {
+                object obj = ResourceManager.GetObject("brkLogin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cutlery_3170733 {
             get {
                 object obj = ResourceManager.GetObject("cutlery_3170733", resourceCulture);
