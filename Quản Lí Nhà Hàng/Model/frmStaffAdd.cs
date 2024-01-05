@@ -21,14 +21,42 @@ namespace Quản_Lí_Nhà_Hàng.Model
 
         public int id = 0;
 
-        private void frmStaffAdd_Load(object sender, EventArgs e)
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void label5_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtPhone.Text) || cbRole.SelectedIndex == -1)
+
+        }
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private void btnSave_Click_1(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtPhone.Text) || string.IsNullOrEmpty(txtGmail.Text) || cbRole.SelectedIndex == -1)
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -39,22 +67,38 @@ namespace Quản_Lí_Nhà_Hàng.Model
                 MessageBox.Show("Số điện thoại phải có đúng 10 chữ số!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (string.IsNullOrEmpty(txtGmail.Text))
+            {
+                MessageBox.Show("Vui lòng nhập địa chỉ Gmail!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Kiểm tra định dạng Gmail
+            if (!IsValidEmail(txtGmail.Text))
+            {
+                MessageBox.Show("Địa chỉ Gmail không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
             string qry = "";
             if (id == 0) //insert
             {
-                qry = "Insert into staff Values(@Name,@phone,@role)";
+                qry = "Insert into staff Values(@Name,@phone,@role,@Gmail)";
             }
             else
             {
-                qry = "Update staff Set sName = @Name, sPhone = @phone,sRole = @role where staffID = @id ";
+                qry = "Update staff Set sName = @Name, sPhone = @phone,sRole = @role,sGmail = @Gmail where staffID = @id ";
 
             }
+
 
             Hashtable ht = new Hashtable();
             ht.Add("@id", id);
             ht.Add("@Name", txtName.Text);
             ht.Add("@phone", txtPhone.Text);
             ht.Add("@role", cbRole.Text);
+            ht.Add("@Gmail", txtGmail.Text);
 
 
             if (MainClass.SQl(qry, ht) > 0)
@@ -63,14 +107,10 @@ namespace Quản_Lí_Nhà_Hàng.Model
                 id = 0;
                 txtName.Text = "";
                 txtPhone.Text = "";
+                txtGmail.Text = "";
                 cbRole.SelectedIndex = -1;
                 txtName.Focus();
             }
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

@@ -41,6 +41,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cbRole = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2MessageDialog1 = new Guna.UI2.WinForms.Guna2MessageDialog();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtGmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.guna2Panel2.SuspendLayout();
@@ -141,7 +143,7 @@
             this.btnSave.Size = new System.Drawing.Size(93, 45);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Lưu";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
             // 
             // btnClose
             // 
@@ -234,6 +236,40 @@
             this.guna2MessageDialog1.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
             this.guna2MessageDialog1.Text = null;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label5.Location = new System.Drawing.Point(283, 236);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(62, 25);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Gmail";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // txtGmail
+            // 
+            this.txtGmail.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtGmail.DefaultText = "";
+            this.txtGmail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtGmail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtGmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtGmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtGmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtGmail.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtGmail.ForeColor = System.Drawing.Color.Black;
+            this.txtGmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtGmail.Location = new System.Drawing.Point(288, 265);
+            this.txtGmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtGmail.Name = "txtGmail";
+            this.txtGmail.PasswordChar = '\0';
+            this.txtGmail.PlaceholderText = "";
+            this.txtGmail.SelectedText = "";
+            this.txtGmail.Size = new System.Drawing.Size(216, 48);
+            this.txtGmail.TabIndex = 9;
+            this.txtGmail.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
+            // 
             // frmStaffAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -241,6 +277,8 @@
             this.ClientSize = new System.Drawing.Size(529, 449);
             this.Controls.Add(this.cbRole);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtGmail);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.guna2Panel2);
@@ -250,7 +288,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmStaffAdd";
             this.Text = "frmStaffAdd";
-            this.Load += new System.EventHandler(this.frmStaffAdd_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
@@ -274,5 +311,7 @@
         private System.Windows.Forms.Label label4;
         public Guna.UI2.WinForms.Guna2ComboBox cbRole;
         public Guna.UI2.WinForms.Guna2MessageDialog guna2MessageDialog1;
+        private System.Windows.Forms.Label label5;
+        public Guna.UI2.WinForms.Guna2TextBox txtGmail;
     }
 }

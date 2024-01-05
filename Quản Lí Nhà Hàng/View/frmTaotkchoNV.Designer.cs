@@ -41,10 +41,13 @@
             this.txtMK = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtTaoTK = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgvTK = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtGmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgvSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvMK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvUname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvGmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTK)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,8 +64,8 @@
             this.cmbPhanquyen.Items.AddRange(new object[] {
             "Quản lý",
             "Nhân viên order"});
-            this.cmbPhanquyen.Location = new System.Drawing.Point(215, 244);
-            this.cmbPhanquyen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbPhanquyen.Location = new System.Drawing.Point(215, 280);
+            this.cmbPhanquyen.Margin = new System.Windows.Forms.Padding(4);
             this.cmbPhanquyen.Name = "cmbPhanquyen";
             this.cmbPhanquyen.Size = new System.Drawing.Size(267, 36);
             this.cmbPhanquyen.TabIndex = 14;
@@ -76,7 +79,7 @@
             this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnXoa.ForeColor = System.Drawing.Color.White;
             this.btnXoa.Location = new System.Drawing.Point(739, 117);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(99, 69);
             this.btnXoa.TabIndex = 12;
@@ -92,7 +95,7 @@
             this.btnThem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnThem.ForeColor = System.Drawing.Color.White;
             this.btnThem.Location = new System.Drawing.Point(592, 117);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(4);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(99, 69);
             this.btnThem.TabIndex = 13;
@@ -103,7 +106,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(16, 257);
+            this.label4.Location = new System.Drawing.Point(16, 280);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(114, 31);
@@ -113,11 +116,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(16, 182);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(16, 142);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 31);
+            this.label2.Size = new System.Drawing.Size(130, 32);
             this.label2.TabIndex = 9;
             this.label2.Text = "Mật khẩu";
             // 
@@ -136,7 +139,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 92);
+            this.label1.Location = new System.Drawing.Point(16, 79);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(178, 31);
@@ -154,7 +157,7 @@
             this.txtMK.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMK.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtMK.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMK.Location = new System.Drawing.Point(215, 169);
+            this.txtMK.Location = new System.Drawing.Point(215, 142);
             this.txtMK.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMK.Name = "txtMK";
             this.txtMK.PasswordChar = '\0';
@@ -202,7 +205,8 @@
             this.dgvSTT,
             this.dgvTen,
             this.dgvMK,
-            this.dgvUname});
+            this.dgvUname,
+            this.dgvGmail});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -213,12 +217,12 @@
             this.dgvTK.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTK.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvTK.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvTK.Location = new System.Drawing.Point(0, 430);
-            this.dgvTK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvTK.Location = new System.Drawing.Point(0, 471);
+            this.dgvTK.Margin = new System.Windows.Forms.Padding(4);
             this.dgvTK.Name = "dgvTK";
             this.dgvTK.RowHeadersVisible = false;
             this.dgvTK.RowHeadersWidth = 51;
-            this.dgvTK.Size = new System.Drawing.Size(984, 364);
+            this.dgvTK.Size = new System.Drawing.Size(984, 323);
             this.dgvTK.TabIndex = 5;
             this.dgvTK.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvTK.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -241,6 +245,37 @@
             this.dgvTK.ThemeStyle.RowsStyle.Height = 22;
             this.dgvTK.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvTK.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvTK.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTK_CellClick);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(16, 206);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(89, 32);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Gmail";
+            // 
+            // txtGmail
+            // 
+            this.txtGmail.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtGmail.DefaultText = "";
+            this.txtGmail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtGmail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtGmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtGmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtGmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtGmail.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtGmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtGmail.Location = new System.Drawing.Point(215, 206);
+            this.txtGmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtGmail.Name = "txtGmail";
+            this.txtGmail.PasswordChar = '\0';
+            this.txtGmail.PlaceholderText = "";
+            this.txtGmail.SelectedText = "";
+            this.txtGmail.Size = new System.Drawing.Size(267, 44);
+            this.txtGmail.TabIndex = 6;
             // 
             // dgvSTT
             // 
@@ -267,11 +302,18 @@
             this.dgvUname.MinimumWidth = 6;
             this.dgvUname.Name = "dgvUname";
             // 
+            // dgvGmail
+            // 
+            this.dgvGmail.HeaderText = "Gmail";
+            this.dgvGmail.MinimumWidth = 6;
+            this.dgvGmail.Name = "dgvGmail";
+            // 
             // frmTaotkchoNV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 794);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.cmbPhanquyen);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnThem);
@@ -279,10 +321,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtGmail);
             this.Controls.Add(this.txtMK);
             this.Controls.Add(this.txtTaoTK);
             this.Controls.Add(this.dgvTK);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmTaotkchoNV";
             this.Text = "frmTaotkchoNV";
             this.Load += new System.EventHandler(this.frmTaotkchoNV_Load);
@@ -304,9 +347,12 @@
         private Guna.UI2.WinForms.Guna2TextBox txtMK;
         private Guna.UI2.WinForms.Guna2TextBox txtTaoTK;
         private Guna.UI2.WinForms.Guna2DataGridView dgvTK;
+        private System.Windows.Forms.Label label5;
+        private Guna.UI2.WinForms.Guna2TextBox txtGmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvSTT;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTen;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvMK;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvUname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvGmail;
     }
 }
