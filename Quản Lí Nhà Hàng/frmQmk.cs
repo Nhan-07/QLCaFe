@@ -109,7 +109,7 @@ namespace Quản_Lí_Nhà_Hàng
                 MessageBox.Show("Lỗi khi gửi đến mail vui lòng xem lại mail hoặc nhập lại mã xác nhận" + ex.Message);
             }
         }
-        
+
         private bool CheckExistingEmail(string email)
         {
 
@@ -120,7 +120,7 @@ namespace Quản_Lí_Nhà_Hàng
                 using (SqlCommand cmd = new SqlCommand(qry, con))
                 {
                     cmd.Parameters.AddWithValue("@Email", email);
-                   
+
                     int count = (int)cmd.ExecuteScalar();
 
                     return count > 0;
@@ -150,17 +150,15 @@ namespace Quản_Lí_Nhà_Hàng
             string Gmail = txtGmail.Text;
             string matkhau = txtMatKhau.Text;
             string nhaplaimatkhau = txtNhapLaiMatKhau.Text;
-           
-            //hàm kiểm tra xem nhập đúng yêu cầu không nếu không sẽ thông báo
+
+            // Kiểm tra xem đã nhập đúng yêu cầu chưa, nếu không sẽ thông báo
             if (string.IsNullOrEmpty(Gmail))
             {
-                // Gmail bằng rỗng thì nhập lại
-                MessageBox.Show("Vui lòng nhập Gmail !", "Thông Báo");
+                MessageBox.Show("Vui lòng nhập Gmail!", "Thông Báo");
                 return;
             }
             if (string.IsNullOrEmpty(matkhau))
             {
-                // Mật khẩu bằng rỗng thì nhập lại
                 MessageBox.Show("Vui lòng nhập mật khẩu!", "Thông Báo");
                 return;
             }
@@ -170,27 +168,32 @@ namespace Quản_Lí_Nhà_Hàng
                 MessageBox.Show("Vui lòng xác nhận mật khẩu chính xác", "Thông Báo");
                 return;
             }
-            //hàm kiểm tra mã nếu không đúng sẽ bắt nhập mã lại
+
+            // Kiểm tra mã xác nhận
             string userEnteredCode = txtMaXacNhan.Text.Trim();
             if (userEnteredCode != verification_code)
             {
-                MessageBox.Show("Mã xác nhận sai vui lòng kiểm tra lại Mail.");
+                MessageBox.Show("Mã xác nhận sai, vui lòng kiểm tra lại Email.");
                 return;
             }
+
+            // Mã hóa mật khẩu mới
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(matkhau);
+
             string updateQuery = "UPDATE users SET Upass = @Upass WHERE Gmail = @Gmail";
             using (SqlConnection con = new SqlConnection(MainClass.con_string))
             {
                 con.Open();
                 using (SqlCommand cmd = new SqlCommand(updateQuery, con))
                 {
-                    cmd.Parameters.AddWithValue("@Upass", matkhau);
+                    cmd.Parameters.AddWithValue("@Upass", hashedPassword);
                     cmd.Parameters.AddWithValue("@Gmail", Gmail);
                     int rowsAffected = cmd.ExecuteNonQuery();
 
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("Mật khẩu đã được thay đổi thành công!", "Thông Báo");
-                        // Perform any additional actions or show UI based on password change success
+                        // Thực hiện các hành động bổ sung hoặc hiển thị giao diện người dùng dựa trên việc thay đổi mật khẩu thành công
                     }
                     else
                     {
@@ -198,7 +201,6 @@ namespace Quản_Lí_Nhà_Hàng
                     }
                 }
             }
-
         }
     }
 }
