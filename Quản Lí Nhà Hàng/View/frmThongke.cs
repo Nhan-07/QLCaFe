@@ -90,14 +90,12 @@ namespace Quản_Lí_Nhà_Hàng.View
 
             MainClass.con.Close(); // Đóng kết nối sau khi sử dụng
 
-            // Hiển thị dữ liệu lên lblTopmon
-            string topMonText = "";
-            foreach (DataRow row in dt.Rows)
-            {
-                string productName = row["pName"].ToString();
-                topMonText += productName + "\n";
-            }
-            lblTopmon.Text = topMonText;
+            // Đổi tên các cột
+            dt.Columns["pName"].ColumnName = "Tên sản phẩm";
+            dt.Columns["ProductCount"].ColumnName = "Số lượng";
+
+            // Truyền dữ liệu vào DataGridView
+            dataGridView1.DataSource = dt;
         }
         private void btnSomon_Click(object sender, EventArgs e)
         {
@@ -132,5 +130,7 @@ namespace Quản_Lí_Nhà_Hàng.View
             }
             return;
         }
+
+        
     }
 }
