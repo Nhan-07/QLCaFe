@@ -301,6 +301,11 @@ namespace Quản_Lí_Nhà_Hàng.Model
             lblTotal.Text = "0.00";
         }
 
+        private void txtGiamGia_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnLapphieu_Click(object sender, EventArgs e)
         {
             frmKitChenView frmKitChen = new frmKitChenView();
@@ -670,5 +675,6 @@ namespace Quản_Lí_Nhà_Hàng.Model
                 printBILL.ShowDialog();
             }
         }
+
     }
 }

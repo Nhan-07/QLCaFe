@@ -102,6 +102,7 @@ namespace Quản_Lí_Nhà_Hàng
                         frm.Show();
                     }
                 }
+                this.Hide();
             }
 
         }
