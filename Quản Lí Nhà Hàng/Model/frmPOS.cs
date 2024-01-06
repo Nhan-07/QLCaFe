@@ -164,7 +164,6 @@ namespace Quản_Lí_Nhà_Hàng.Model
         private void GetTotal()
         {
             double total = 0;
-            lblTotal.Text = "";
             foreach (DataGridViewRow row in dgvQL.Rows)
             {
                 total += double.Parse(row.Cells["dgvTong"].Value.ToString());
@@ -287,6 +286,7 @@ namespace Quản_Lí_Nhà_Hàng.Model
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
 
+           
             thanhToan frm = new thanhToan();
             frm.MainID = MainID;
             frm.total = double.Parse(lblTotal.Text);
@@ -301,10 +301,7 @@ namespace Quản_Lí_Nhà_Hàng.Model
             lblTotal.Text = "0.00";
         }
 
-        private void txtGiamGia_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void btnLapphieu_Click(object sender, EventArgs e)
         {
@@ -676,5 +673,24 @@ namespace Quản_Lí_Nhà_Hàng.Model
             }
         }
 
+        
+
+        private void txtGiamGia_Click(object sender, EventArgs e)
+        { 
+            string discountInput = Microsoft.VisualBasic.Interaction.InputBox("Nhập số tiền giảm giá:", "Giảm giá", "0");
+
+            double discountAmount;
+
+            if (double.TryParse(discountInput, out discountAmount))
+            {
+                // Áp dụng giảm giá vào tổng số tiền
+                double total = double.Parse(lblTotal.Text);
+                double discountPercent = total * (discountAmount / 100); // Tính tỷ lệ giảm giá
+              //  double discountValue = total * discountPercent;
+               // total -= discountValue;
+                lblTotal.Text = discountPercent.ToString("N0");
+            }
+
+        }
     }
 }
