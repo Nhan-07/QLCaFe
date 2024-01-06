@@ -653,11 +653,17 @@ namespace Quản_Lí_Nhà_Hàng.Model
             float qrCodeY = top + lineHeight;
             e.Graphics.DrawImage(qrCodeImage, qrCodeX, qrCodeY);
 
+
+            testQr ts = new testQr();
+            ts.LoadWebsite(jmessage.Value<string>("payUrl").ToString());
+            ts.Show();
+
         }
 
  
         private void btninbill_Click(object sender, EventArgs e)
         {
+           
             if (dgvQL.Rows.Count == 0)
             {
                 MessageBox.Show("Bảng dữ liệu trống","Thông Báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
@@ -674,6 +680,9 @@ namespace Quản_Lí_Nhà_Hàng.Model
                 printBILL.Document = printDocument;
                 printBILL.ShowDialog();
             }
+          
+            
+
         }
 
     }

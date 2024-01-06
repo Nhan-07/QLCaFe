@@ -7,22 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using CefSharp;
+using CefSharp.WinForms;
 namespace Quản_Lí_Nhà_Hàng.ThanhToanQuaMomo
 {
     public partial class testQr : Form
     {
-        public Bitmap QRCodeImage { get; set; }
-       // public string soTien { get; set; }
+        private ChromiumWebBrowser browser;
         public testQr()
         {
             InitializeComponent();
+            // Khởi tạo ChromiumWebBrowser
+            browser = new ChromiumWebBrowser();
+            browser.Dock = DockStyle.Fill;
+
+            // Thêm ChromiumWebBrowser vào Form2
+            Controls.Add(browser);
         }
-
-        private void testQr_Load(object sender, EventArgs e)
+        public void LoadWebsite(string url)
         {
-
-           ptbQr.Image = QRCodeImage;
+            browser.Load(url);
         }
     }
 }
